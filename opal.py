@@ -7,7 +7,7 @@ from pprint import pprint
 import opal_security as opal
 
 configuration = opal.Configuration(
-    host = "https://api.opal.dev/v1"
+    host = "https://api.opal.dev/v1" # Replace with self-hosted domain (e.g. https://opal.example.com/v1)
 )
 
 ## The client must configure the authentication and authorization parameters
@@ -17,7 +17,7 @@ configuration = opal.Configuration(
 
 ## Configure Bearer authorization: BearerAuth
 configuration = opal.Configuration(
-    access_token = "ACCESS_TOKEN_HERE"
+    access_token = "ACCESS_TOKEN_HERE" # Opal Access Token here NOTE: can not be a read-only token
 )
 
 
@@ -32,7 +32,7 @@ with opal.ApiClient(configuration) as api_client:
     resource_type_filter = "AWS_SSO_PERMISSION_SET"
 
     try:
-        api_response = resources_api.get_resources()
+        api_response = resources_api.get_resources(resource_type_filter=resource_type_filter)
         results = api_response.results
         print("The response of ResourcesApi->get_resources:\n")
         ## pprint all results
