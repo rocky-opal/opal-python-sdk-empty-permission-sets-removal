@@ -8,10 +8,12 @@ This script uses the [Opal Python SDK](https://github.com/opalsecurity/opal-pyth
 - Make sure you have `python3` version `3.13.7` or above installed
 - Clone this repository
 - In the terminal, change to the `opal-python-sdk-empty-permission-sets-removal` directory:
+
 Unix Like Systems:
 ```shell
 cd opal-python-sdk-empty-permission-sets-removal
 ```
+
 
 Windows:
 
