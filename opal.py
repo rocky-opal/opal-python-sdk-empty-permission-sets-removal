@@ -25,8 +25,6 @@ with opal.ApiClient(configuration) as api_client:
     ## Create an instance of the API class for resources
     resources_api = opal.ResourcesApi(api_client)
 
-    ##Create an instance of the API class for 
-
     ## add filters 
     resource_type_filter = "AWS_SSO_PERMISSION_SET"
     page_size = 1000
