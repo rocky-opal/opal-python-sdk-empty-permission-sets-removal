@@ -33,7 +33,7 @@ with opal.ApiClient(configuration) as api_client:
 
     try:
         while done == False:
-            api_response = resources_api.get_resources(page_size=page_size, cursor=cursor)
+            api_response = resources_api.get_resources(resource_type_filter=resource_type_filter, page_size=page_size, cursor=cursor)
             results = api_response.results
             ## pprint all results
             # pprint(results)
