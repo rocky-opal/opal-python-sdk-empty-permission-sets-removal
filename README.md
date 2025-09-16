@@ -27,7 +27,7 @@ source bin/activate
 ```
 - Install dependencies
 ```shell
-python3 -m pip istall requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 - (OPTIONAL) Replace the host string with your self hosted URL
 ```python
