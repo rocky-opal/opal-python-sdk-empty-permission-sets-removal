@@ -1,4 +1,3 @@
-
 from opal_security.rest import ApiException
 from pprint import pprint
 
@@ -28,23 +27,30 @@ with opal.ApiClient(configuration) as api_client:
 
     ##Create an instance of the API class for 
 
-    # # add a resource_type_filter
+    ## add filters 
     resource_type_filter = "AWS_SSO_PERMISSION_SET"
+    page_size = 1000
+    done = False
+    cursor = None
 
     try:
-        api_response = resources_api.get_resources(resource_type_filter=resource_type_filter)
-        results = api_response.results
-        print("The response of ResourcesApi->get_resources:\n")
-        ## pprint all results
-        # pprint(results)
-        for result in results:
-            ## get resource users
-            resource_users_response = resources_api.get_resource_users(result.resource_id)
-            ## store the user list
-            resource_users = resource_users_response.results
-            if resource_users == []:
-                resources_api.delete_resource(result.resource_id)
-                pprint(result.name + " DELETED")            
+        while done == False:
+            api_response = resources_api.get_resources(page_size=page_size, cursor=cursor)
+            results = api_response.results
+            ## pprint all results
+            # pprint(results)
+
+            for result in results:
+                ## get resource users
+                resource_users_response = resources_api.get_resource_users(result.resource_id)
+                ## store the user list
+                resource_users = resource_users_response.results
+                ##check if resource users is empty and delete if so
+                if resource_users == []:
+                    resources_api.delete_resource(result.resource_id)
+                    pprint(result.name + " DELETED")
+            cursor = api_response.next
+            done = api_response.next == None        
     except Exception as e:
         print("Exception when calling ResourcesApi->get_resources: %s\n" % e)
 

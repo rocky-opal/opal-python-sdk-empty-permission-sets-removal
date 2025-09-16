@@ -1,2 +1,9 @@
-certifi==2025.4.26
-wheel @ file:///opt/homebrew/Cellar/python%403.13/3.13.2/libexec/wheel-0.45.1-py3-none-any.whl#sha256=b9235939e2096903717cb6bfc132267f8a7e46deb2ec3ef9c5e234ea301795d0
+annotated-types==0.7.0
+opal-security==1.0.3
+pydantic==2.11.9
+pydantic_core==2.33.2
+python-dateutil==2.9.0.post0
+six==1.17.0
+typing-inspection==0.4.1
+typing_extensions==4.15.0
+urllib3==2.5.0
